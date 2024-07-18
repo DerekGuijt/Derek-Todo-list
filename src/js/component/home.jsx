@@ -43,45 +43,7 @@ const Home = () => {
     }
     setIsLoading(false);
   };
-
-  const createUser = async () => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/users/${user}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: user,
-          todos: [],
-        }),
-      });
-      await handleApiError(response);
-      await fetchTodos();
-    } catch (error) {
-      console.error("Error creating user:", error);
-      setIsLoading(false);
-    }
-  };
-
-  const fetchTodos = async () => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/users/${user}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application.json",
-        },
-      });
-      await handleApiError(response);
-      const data = await response.json();
-      setTodos(Array.isArray(data) ? data : []);
-    } catch (error) {
-      console.error("Error fetching tasks:", error);
-      throw error;
-    }
-    setIsLoading(false);
-  };
-
+ 
   const handleClick = async () => {
     // if (newTodo.trim() !== "") {
     //   setTodos([...todos, newTodo]);
