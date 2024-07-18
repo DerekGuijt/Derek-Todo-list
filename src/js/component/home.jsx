@@ -16,14 +16,7 @@ const Home = () => {
     initializeUser();
   }, []);
 
-  const handleApiError = async (response) => {
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`API error: ${response.status} - ${errorText}`);
-    }
-  };
-
-  const initializeUser = async () => {
+    const initializeUser = async () => {
     const response = await fetch(`${API_BASE_URL}/users/${user}`, {
       method: "GET",
       headers: {
