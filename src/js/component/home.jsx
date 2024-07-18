@@ -6,7 +6,7 @@ import rigoImage from "../../img/rigo-baby.jpg";
 const Home = () => {
   const [newTodo, setNewTodo] = useState("");
   const [todos, setTodos] = useState([]);
-  const [user, setUser] = useState("daperk");
+  const [user, setUser] = useState("Derek");
   const [isLoading, setIsLoading] = useState(false);
 
   // API URL
@@ -38,11 +38,7 @@ const Home = () => {
   };
  
   const handleClick = async () => {
-    // if (newTodo.trim() !== "") {
-    //   setTodos([...todos, newTodo]);
-    //   setNewTodo("");
-    // }
-    const url = "https://playground.4geeks.com/todo/todos/daperk";
+    const url = `https://playground.4geeks.com/todo/todos/${user}`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
